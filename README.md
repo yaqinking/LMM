@@ -9,6 +9,7 @@
 防止内存泄漏的一个方法是，一个 `alloc` or `new` or `retain` 配对一个 `release` or `autolease` 使用。
 
 `@property` 默认生成简单 `setter` 和 `getter` 其修饰符的作用
+
 - 内存相关
 1. `assign` 直接赋值（应用于 基本数据类型 or 对象）
 2. `retain` 生成符合内存管理原则的 setter（应用于 对象）
@@ -22,6 +23,7 @@
 - set get 命名相关
 1. `setter` = `XXX`
 2. `getter` = `XXX`
+
 在用 `property` 时使用符合内存管理的修饰符后，在 MRC 中一定要在 `dealloc` 中 `release` 掉相应的对象。
 
 `release` 的作用是让 `retainCount` - 1 而 `autorelease` 的作用是把对象添加到 `autoreleasepool` 中去
